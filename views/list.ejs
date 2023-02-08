@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>list</title>
+    <style>
+        table{
+            margin-top: 50px;
+            margin-left: 320px;
+        }
+        table th{
+            color: green;
+        }
+        table tr{
+            font-size: larger;
+            font-weight: bolder;
+        }
+        body{
+            text-align: center;
+        }
+        h1{
+            color:brown;
+            font-size: x-large;
+            font-weight: bolder;
+        }
+        h2{
+            color: red;
+        }
+        .btn{
+            padding: 10px;
+            border: 0px;
+            background-color: blue;
+            color: white;
+            border-radius: 8px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>CANDIDATE LIST</h1>
+    <% if(arr.length!=0) { %>
+    <table border="2px">
+        <tr>
+            <th>FIRST NAME</th>
+            <th>LAST NAME</th>
+            <th>EMAIL</th>
+            <th>ACTION</th>
+        </tr>
+        <% arr.forEach(function(mod){ %>
+        <form action="/cus" method="post">
+        <tr>
+            <td><%= mod.fname %></td>
+            <td><%= mod.lname %></td>
+            <td><%= mod.email %></td>
+            <td><button class="btn" type="submit" name="check" value="<%= mod._id %>">DELETE</button></td>
+        </tr>
+        </form>
+    <% }); %>
+    </table>
+    <% } else { %>
+        <h2> CANDIDATE NOT EXISTS!</h2>
+   <% } %>
+</body>
+</html>
