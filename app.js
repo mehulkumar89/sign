@@ -1,9 +1,10 @@
+require("dotenv").config();
 const express=require("express");
 const app=express();
 const bd=require("body-parser");
 const mongoose= require("mongoose");
 mongoose.set("strictQuery",false);
-mongoose. connect("mongodb+srv://mehulkumar:mehul%402401@cluster0.8qvjaia.mongodb.net/form");
+mongoose. connect(process.env.CONN);
 app.use(express.static("public")); 
 app.use(bd.urlencoded({extended:true}))   
 app.set("view engine","ejs")
